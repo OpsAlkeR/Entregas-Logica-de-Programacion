@@ -1,0 +1,19 @@
+Title: Evaluación booleana multicondicional para despacho mayorista 
+Description: Un cliente corporativo intenta realizar un pedido masivo desde el catálogo. Antes de insertar el registro en la base de datos, la lógica de programación debe validar si el pedido es técnica y financieramente viable.
+
+\\INICION
+
+Definir PrecioProducto ($1000) como Real
+Definir PesoKilogramo (15Kg) como Entero
+Definir CantidadUnidades como Entero
+Definir SaldoCliente como Real
+Definir CostoTotal como Real
+Definir CapacidadTransportadora como Real
+Definir PedidoViable como Bolean
+
+\\PROCESO
+
+Imprimir "Cantidad de Unidades solicitadas"
+Leer Cantidad de Unidades
+
+PedidoViable = ((CostoTotal = CantidadUnidades*PrecioProducto),CapacidadTransportadora = CantidadUnidades*PesoKilogramo
