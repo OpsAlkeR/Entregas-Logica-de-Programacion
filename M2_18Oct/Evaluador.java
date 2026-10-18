@@ -5,13 +5,16 @@ public class Evaluador {
     public static void main(String[] args) {
         
         Scanner leer = new Scanner (System.in);
-        int loteProducto;
-        int cantidadProductos;
         String continuar = "s";
-        double costo;
-
+        
+        System.out.println("¿Desea ingresar un producto? (s/n):");
+        continuar = leer.next();
+        
         while (continuar.equalsIgnoreCase("s")) { 
-
+            
+            int loteProducto;
+            int cantidadProductos;
+            double costo;
         System.out.println("¿En que lote desea guardar el producto?");
         loteProducto = leer.nextInt();
 
@@ -31,8 +34,12 @@ public class Evaluador {
         } else {
             System.out.println("Producto de categoria alta ingresado correctamente");
         }
+        
+        System.out.println("¿Desea ingresar otro producto? (s/n):");
         continuar = leer.next();
+
         }
+        System.out.println("Tarea finalizada");
         leer.close();
     }
 }
