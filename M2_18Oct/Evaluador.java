@@ -6,6 +6,9 @@ public class Evaluador {
         
         Scanner leer = new Scanner (System.in);
         String continuar = "s";
+        double sumaCosto = 0;
+        int totalProductos = 0;
+        int contadorAltos = 0;
         
         System.out.println("¿Desea ingresar un producto? (s/n):");
         continuar = leer.next();
@@ -15,6 +18,7 @@ public class Evaluador {
             int loteProducto;
             int cantidadProductos;
             double costo;
+
         System.out.println("¿En que lote desea guardar el producto?");
         loteProducto = leer.nextInt();
 
@@ -23,7 +27,8 @@ public class Evaluador {
 
         System.out.println("¿Cuanto cuesta el producto?");
         costo = leer.nextDouble();
-
+        sumaCosto += costo;
+        totalProductos++;
             
         if (costo < 10000) {
             System.out.println("Producto de categoria baja ingresado correctamente");
@@ -33,13 +38,19 @@ public class Evaluador {
             
         } else {
             System.out.println("Producto de categoria alta ingresado correctamente");
+            contadorAltos += cantidadProductos;
         }
         
         System.out.println("¿Desea ingresar otro producto? (s/n):");
         continuar = leer.next();
 
         }
-        System.out.println("Tarea finalizada");
-        leer.close();
+            double promedioCostos = 0;
+            if (totalProductos > 0) {
+            promedioCostos = sumaCosto / totalProductos;
+            }
+            System.out.println("REPORTE FINAL");
+            System.out.println("Costo promedio de los productos ingresados: " + promedioCostos);
+            System.out.println("Cantidad de productos de categoría alta: " + contadorAltos);
     }
 }
