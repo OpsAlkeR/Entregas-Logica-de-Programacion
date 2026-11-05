@@ -42,6 +42,18 @@ public class Chevignon {
                         System.out.println("NOP, esa referencia no existe en el sistema.");
                     }
                     break;
+                case 2:
+                    System.out.println("Ingrese el nombre de la referencia que desea agregar");
+                    leer.nextLine();
+                    String nuevaRef = leer.nextLine();
+
+                    boolean agregado = nuevaPrenda(Referencias, nuevaRef);
+                    if (agregado) {
+                        System.out.println("Referencia ingresada correctamente, ya la metió");
+                    } else {
+                        System.out.println("Negativo al civil, ya no hay cupo.");
+                    }
+                    break;
 
                 default:
                     throw new AssertionError();
@@ -52,6 +64,15 @@ public class Chevignon {
         } else {
             System.out.println("Tramite finalizado");
         }
+    }
+    public static boolean nuevaPrenda(String[] salchicha, String nuevaPrenda) {
+        for (int i = 0; i < salchicha.length; i++) {
+           if (salchicha[i] == null) {
+            salchicha[i] = nuevaPrenda;
+            return true;
+           }
+        }
+        return false;
     }
     public static boolean buscarReferencia(String[] papa, String buscado) {
         for (int i = 0; i < papa.length; i++) {
