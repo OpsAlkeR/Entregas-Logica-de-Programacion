@@ -1,0 +1,65 @@
+
+import java.util.Scanner;
+
+public class Chevignon {
+    public static void main(String[] args) {
+        
+        Scanner leer = new Scanner(System.in);
+
+        int CEDI = 0;
+        String continuar = "s";
+        int respuesta;
+
+        String [] Referencias = new String[5];
+        Referencias [0] = "Chaqueta Cuero Icon";
+        Referencias [1] = "Jean Slim Fit";
+        Referencias [2] = "Camiseta Polo Leathe";
+        Referencias [3] = null;
+        Referencias [4] = null;
+
+        System.out.println("!Hola¡ Bienvenido la bodega ¿Deseas buscar o ingresar alguna referencia? (s/n)");
+        continuar = leer.next();
+
+        if (continuar.equalsIgnoreCase("s")) {
+            do { 
+                System.out.println("Que deseas realizar en esta ocacion");
+                System.out.println("1. Buscar referencia.");
+                System.out.println("2. Agregar referencia.");
+                System.out.println("3. Listar todas las referencias.");
+                System.out.println("4. Salir.");
+                respuesta = leer.nextInt();
+
+                switch (respuesta) {
+                case 1:
+                    System.out.println("Ingrese la referencia que desea encontrar");
+                    leer.nextLine();
+                    String buscarReferencia = leer.nextLine();
+                    boolean encontrada = buscarReferencia(Referencias, buscarReferencia);
+
+                    if (encontrada) {
+                        System.out.println("La referencia sí se encuentra registrada");
+                    } else {
+                        System.out.println("NOP, esa referencia no existe en el sistema.");
+                    }
+                    break;
+
+                default:
+                    throw new AssertionError();
+                }
+            } while (respuesta !=4);
+            
+
+        } else {
+            System.out.println("Tramite finalizado");
+        }
+    }
+    public static boolean buscarReferencia(String[] papa, String buscado) {
+        for (int i = 0; i < papa.length; i++) {
+            if (papa[i] != null && papa[i].equalsIgnoreCase(buscado)) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+
