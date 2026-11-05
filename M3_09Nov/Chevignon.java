@@ -27,6 +27,7 @@ public class Chevignon {
                 System.out.println("2. Agregar referencia.");
                 System.out.println("3. Listar todas las referencias.");
                 System.out.println("4. Salir.");
+                System.out.println("-----------------------------------");
                 respuesta = leer.nextInt();
 
                 switch (respuesta) {
@@ -49,11 +50,24 @@ public class Chevignon {
 
                     boolean agregado = nuevaPrenda(Referencias, nuevaRef);
                     if (agregado) {
+                        System.out.println("-----------------------------------------------");
                         System.out.println("Referencia ingresada correctamente, ya la metió");
+                        System.out.println("-----------------------------------------------");
                     } else {
+                        System.out.println("----------------------------------");
                         System.out.println("Negativo al civil, ya no hay cupo.");
+                        System.out.println("----------------------------------");
                     }
                     break;
+                case 3:
+                    listarReferencias(Referencias);
+                    System.out.println("----------------------");
+
+                    break;
+                case 4:
+                    System.out.println("Tramite culminao");
+                    break;
+
 
                 default:
                     throw new AssertionError();
@@ -82,5 +96,12 @@ public class Chevignon {
         }
         return false;
     }
-}
+    public static void listarReferencias(String[] arreglo) {
+        for (String ref : arreglo) {
+            if (ref != null) {
+                System.out.println(ref);
+            }
+        }
+    }
 
+}
